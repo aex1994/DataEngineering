@@ -9,3 +9,5 @@ Project Requirements:
 5. Document the project in a Jupyter Notebook
 
 This repository will contain the Jupyter Notebook containing the step-by-step process in performing all the necessary project requirements
+
+Look for bluedrive.ipynb
