@@ -42,11 +42,11 @@ def main():
     # Get a user input to proceed to closing the connection and stopping the db instance
     input('Press any key to close the connection and stop the PSQL instance: ')
     
-    print('Is PGPASSWORD still in environment vairables?', end=' ')
+    print('Is PGPASSWORD still in environment variables?', end=' ')
     print('PGPASSWORD' in os.environ)
     print('Clearing environment variables')
     del os.environ['PGPASSWORD']
-    print('Is PGPASSWORD still in environment vairables?', end=' ')
+    print('Is PGPASSWORD still in environment variables?', end=' ')
     print('PGPASSWORD' in os.environ) 
     
     print('Closing the connection to the PSQL instance')
