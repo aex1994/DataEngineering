@@ -10,7 +10,8 @@ This project:
 
 Manual Setup Needed:
 
-1. Manually install docker desktop in your machine and setup WSL2 integration
-2. All content of the Data Warehosing Project Folder should be in a folder in your home directory, called "dwproject" (~/dwproject)
+1. Manually install Docker Desktop (https://www.docker.com/products/docker-desktop/) in your machine and setup WSL2 integration (https://docs.docker.com/desktop/features/wsl/).
+2. All contents of the Data Warehosing Project folder should be in a folder in your home directory, called "dwproject". The working directory is "~/dwproject".
 3. Rename the temp.env file to .env
-4. Run the mainscript.py
+4. Create a Kaggle account (https://www.kaggle.com/) and generate your API token. The downloaded API token, kaggle.json, should be copied inside this directory "~/.config/kaggle"
+5. Run the mainscript.py
