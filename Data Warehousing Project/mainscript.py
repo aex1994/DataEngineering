@@ -23,7 +23,7 @@ def main():
     
     print('Connecting to the PSQL instance via psycopg2')
     conn = psql_conn()
-    
+
     print('Creating dimension tables and fact table')
     create_tables(conn)
     
@@ -35,13 +35,14 @@ def main():
     insert_salesfacttable()
     
     print('Querying the database')
-    input('Press any key to run the queries: ')
+    input('Press enter to run the sample queries: ')
     sql_verify_queries()
     
     
     # Get a user input to proceed to closing the connection and stopping the db instance
-    input('Press any key to close the connection and stop the PSQL instance: ')
+    input('Press enter to close the connection and stop the PSQL instance: ')
     
+    # Clear the stored environment variable PGPASSWORD
     print('Is PGPASSWORD still in environment variables?', end=' ')
     print('PGPASSWORD' in os.environ)
     print('Clearing environment variables')
