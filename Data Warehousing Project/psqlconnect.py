@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 import subprocess
+import time
 import psycopg2
 from psycopg2 import OperationalError
 from sqlqueries import sql_query_creating_tables, query_1, query_2, query_3, query_4, query_5, query_6, query_7
@@ -23,25 +24,36 @@ os.environ['PGPASSWORD'] = pw
 psql_command = ['psql', '-h', hostname, '-U', username, '-d', db,'-p', port_used, '-c']
 
 def psql_conn():
-
-    try:
-        # Establish the connection to the PostgreSQL server
-        conn = psycopg2.connect(
-            host=hostname,
-            user=username,
-            password=pw,
-            port=port_used,
-            dbname=db
-        )
-        
-        print("Connected to PostgreSQL database successfully.")
-        
-        # Return the connection object
-        return conn
     
-    except OperationalError as e:
-        print(f"Error: {e}")
-        return None
+    # Timeout counter
+    timeout = 0
+    
+    while True:
+        
+        timeout = timeout + 1
+        
+        try:
+            # Establish the connection to the PostgreSQL server
+            conn = psycopg2.connect(
+                host=hostname,
+                user=username,
+                password=pw,
+                port=port_used,
+                dbname=db
+            )
+            print("Connected to PostgreSQL database successfully.")
+            # Return the connection object
+            return conn
+        
+        except:
+            print('Connecting to the PSQL instance via psycopg2')
+            time.sleep(3)
+        
+        finally:
+            #exit the loop when timeout counter reached 200, approximately 10 mins
+            if timeout == 200:
+                print('Connection to the PSQL instance timed out')
+                return None
     
 def psql_close(conn):
     
