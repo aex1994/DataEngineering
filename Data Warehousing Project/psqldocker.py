@@ -1,5 +1,4 @@
 import subprocess
-import time
 
 def psqldocker_up():
 
@@ -9,7 +8,6 @@ def psqldocker_up():
         # Run the run_psql command
         try:
             subprocess.run(run_psql, check=True)
-            time.sleep(10) #add a delay to ensure that we can connect to the instance
             print('PSQL instance successfully launched')
         
         except subprocess.CalledProcessError as e:
