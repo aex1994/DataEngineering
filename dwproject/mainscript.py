@@ -1,17 +1,11 @@
 from importdata import importdata
 from psqldocker import psqldocker_up, psqldocker_down
-from mydependencies import install_pandas, install_kaggle_api, install_pyscopg2, install_psql_cli
 from psqlconnect import psql_conn, psql_close, create_tables, insert_datedimtable, insert_statedimtable, insert_sellerdimtable, \
     insert_vehicledimtable, insert_salesfacttable, sql_verify_queries
 import os
 
 def main():
-    print('Installing dependencies')
-    install_pandas()
-    install_kaggle_api()
-    install_pyscopg2()
-    install_psql_cli()
-
+  
     print('Importing data from Kaggle')
     importdata()
     
