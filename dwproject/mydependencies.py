@@ -20,7 +20,7 @@ def install_kaggle_api():
     # Run the pip_command
     try:
         subprocess.run(pip_command, check=True)
-        print('Pandas succesfully installed')
+        print('Kaggle API succesfully installed')
     except subprocess.CalledProcessError as e:
         print(f"Error installing Kaggle API: {e}")
         
@@ -59,3 +59,16 @@ def install_pydotenv():
         print('Python-dotenv succesfully installed')
     except subprocess.CalledProcessError as e:
         print(f"Error installing python-dotenv: {e}")
+
+def main():
+    
+    print('Installing dependencies...')
+    install_kaggle_api()
+    install_pandas()
+    install_pydotenv()
+    install_pyscopg2()
+    install_psql_cli()
+    
+if __name__ == '__main__':
+    main()
+    
